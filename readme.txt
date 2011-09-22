@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: slider, rotator, jquery, responsive, mobile
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: 1.0
+Stable tag: 1.1
 
 Turns WP Rotator into FlexSlider, a fully responsive jQuery slider.
 
@@ -23,6 +23,10 @@ You must have the WP Rotator plugin installed for this to work.
 
 
 == Changelog ==
+
+**Version 1.1 **
+* Upgraded FlexSlider to 1.7
+* Fixed some bugs where the navigation icons didn't display in the right place 
 
 **Version 1.0 **
 

@@ -3,7 +3,7 @@
 Plugin Name: Flex Slider for WP Rotator
 Plugin URI: http://www.wprotator.com
 Description: Turns WP Rotator into FlexSlider, a fully responsive jQuery slider.
-Version: 1.0
+Version: 1.1
 Author: Bill Erickson
 Author URI: http://www.billerickson.net/blog/wordpress-guide
 */
@@ -60,6 +60,13 @@ class BE_Flex_Slider {
 		    		'animationDuration' => wp_rotator_option( 'animate_ms' ),
 		    	);
 		    	
+		    	$flex_slide_settings = array(
+		    		'controlsContainer' => '".flex-container"'
+		    	);
+		    	
+		    	if( 'slide' == wp_rotator_option( 'animate_style' ) )
+		    		$flex_settings = array_merge( $flex_settings, $flex_slide_settings );
+		    	
 		    	$flex_settings = apply_filters( 'be_flex_slider_settings', $flex_settings );
 		    	foreach ( $flex_settings as $field => $value ) {
 		    		echo $field . ': ' . $value . ', ';
@@ -72,7 +79,12 @@ class BE_Flex_Slider {
 	}
 	
 	function flex_slider_markup() {
-		$output = '<div class="flexslider"><ul class="slides">';
+		$output = '';
+		
+		if( 'slide' == wp_rotator_option( 'animate_style' ) )
+			$output .= '<div class="flex-container">';
+			
+		$output .= '<div class="flexslider"><ul class="slides">';
 		
 		$loop = new WP_Query( esc_attr( wp_rotator_option('query_vars') ) );
 		while ( $loop->have_posts() ): $loop->the_post(); global $post;
@@ -95,6 +107,9 @@ class BE_Flex_Slider {
 		endwhile; wp_reset_query();
 		
 		$output .= '</ul></div>';
+		
+		if( 'slide' == wp_rotator_option( 'animate_style' ) )
+			$output .= '</div>';
 		
 		return $output;
 	}
