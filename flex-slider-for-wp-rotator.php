@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Flex Slider for WP Rotator
-Plugin URI: http://www.wprotator.com
+Plugin URI: http://wordpress.org/extend/plugins/flex-slider-for-wp-rotator/
 Description: Turns WP Rotator into FlexSlider, a fully responsive jQuery slider.
 Version: 1.1
 Author: Bill Erickson
