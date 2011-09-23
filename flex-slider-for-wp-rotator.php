@@ -93,9 +93,11 @@ class BE_Flex_Slider {
 			if ( empty( $url ) ) $url = get_permalink($post->ID);
 			$show_info = esc_attr( get_post_meta( $post->ID, 'wp_rotator_show_info', true ) );
 			if ( true == $show_info ) {
-				$caption = get_the_title();
-				if ( get_the_excerpt() ) $caption .= ' | ' . get_the_excerpt();
-				$info = '<p class="flex-caption">' . apply_filters( 'be_flex_slider_caption', $caption ) . '</p>';
+				$title = get_the_title();
+				if ( get_the_excerpt() ) $excerpt = get_the_excerpt(); 
+				else $excerpt = '';
+				$caption = $title . ' <span class="excerpt">' . $excerpt . '</span>';
+				$info = '<p class="flex-caption">' . apply_filters( 'be_flex_slider_caption', $caption, $title, $excerpt ) . '</p>';
 			} else {
 				$info = '';
 			}
