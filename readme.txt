@@ -27,6 +27,7 @@ You must have the WP Rotator plugin installed for this to work.
 **Version 1.1 **
 * Upgraded FlexSlider to 1.7
 * Fixed some bugs where the navigation icons didn't display in the right place 
+* Prevent plugin from activating if WP Rotator isn't already installed. props pauldewouters
 
 **Version 1.0 **
 

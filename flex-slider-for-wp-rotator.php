@@ -13,7 +13,19 @@ class BE_Flex_Slider {
 	
 	function __construct() {
 		$this->instance =& $this;
+		register_activation_hook( __FILE__, array( $this, 'activation_hook' ) );
 		add_action( 'plugins_loaded', array( $this, 'init' ) );	
+	}
+	
+	/**
+	 * Activation Hook
+	 * Confirm WP Rotator is currently active
+	 */
+	function activation_hook() {
+		if( !function_exists( 'wp_rotator_option' ) ) {
+			deactivate_plugins( plugin_basename( __FILE__ ) );
+			wp_die( sprintf( __( 'Sorry, you can&rsquo;t activate unless you have installed <a href="%s">WP Rotator</a>', 'flex-slider-for-wp-rotator'), 'http://wordpress.org/extend/plugins/wp-rotator/' ) );
+		}
 	}
 	
 	function init() {
