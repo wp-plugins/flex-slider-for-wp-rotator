@@ -1,5 +1,5 @@
 === Flex Slider for WP Rotator ===
-Contributors: billerickson
+Contributors: chrisbratlien, billerickson
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7J7VWNW9RQTWC
 Tags: slider, rotator, jquery, responsive, mobile
 Requires at least: 3.0
